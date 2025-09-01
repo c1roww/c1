@@ -5,3 +5,11 @@ payload:
     #steam
     - +.steamcommunity.com
     - +.steampowered.com
+    - +.steamstatic.com
+    - services.googleapis.cn
+    - googleapis.cn
+    - +.xn--mes358aby2apfg.com
+    - +.xn--mes358aby2apfg.site
+    - +.loliapi.com
+    - +.bing.com
+    - +.bing.net

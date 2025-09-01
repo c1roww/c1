@@ -7,3 +7,16 @@ payload:
     #- hubble.mumu.163.com
     - store-api.mumu.163.com
     #- dispatcher-mobile.uu.163.com
+    
+    #- dig.bdurl.net
+    - ads3-normal-lf.zijieapi.com
+    - ads3-normal.zijieapi.com
+    - ads3-normal-lq.zijieapi.com
+    - ads5-normal-lq.zijieapi.com
+    - p3-ad-sign.byteimg.com
+    - p6-ad-sign.byteimg.com
+    - p9-ad-sign.byteimg.com
+    #- aweme.snssdk.com
+    #- dig.zjurl.cn
+    #- dig-tlsv3.bdurl.net
+    #- dig-ec.bdurl.net

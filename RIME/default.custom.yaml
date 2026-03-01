@@ -1,0 +1,16 @@
+patch:
+  schema_list:
+    - { schema: luna_pinyin_simp }
+
+  ascii_composer:
+    good_old_caps_lock: true
+    switch_key:
+      Shift_L: commit_code
+      Shift_R: commit_code
+      Control_L: noop
+      Control_R: noop
+
+  key_binder:
+    bindings:
+      - { when: composing, accept: Shift_L, send: commit_text }
+      - { when: composing, accept: Shift_R, send: commit_text }

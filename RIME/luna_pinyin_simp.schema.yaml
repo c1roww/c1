@@ -1,0 +1,105 @@
+schema:
+  schema_id: luna_pinyin_simp
+  name: 中州韻·拼音（简体）
+  version: "0.35"
+  author: "Rime Developers"
+  description: |
+    朙月拼音输入方案（简体中文）
+    支持简体中文输出，拼音输入，含简拼、全拼、模糊音、词语联想等功能。
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: zh_hans
+    reset: 1
+    states: [ 漢字, 汉字 ]
+
+engine:
+  translators:
+    - punct_translator
+    - table_translator
+    - reverse_lookup_translator
+
+  filters:
+    - simplifier
+    - uniquifier
+
+menu:
+  page_size: 5
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: "'"
+  max_code_length: 6
+  auto_select: false
+  auto_clear: true
+  compact_userdb: true
+
+recognizer:
+  patterns:
+    ascii: "^[a-zA-Z]+$"
+    punct: "^/([0-9]0|[a-z]+)$"
+    postfix: "([a-z]+)$"
+
+segmentors:
+  - ascii_segmentor
+  - matcher
+  - abc_segmentor
+  - punct_segmentor
+  - fallback_segmentor
+
+punctuator:
+  full_shape:
+    " ": { commit: "　" }
+    ",": { commit: "，" }
+    ".": { commit: "。" }
+    ":": { commit: "：" }
+    ";": { commit: "；" }
+    "!": { commit: "！" }
+    "?": { commit: "？" }
+  half_shape:
+    ",": ","
+    ".": "."
+    ":": ":"
+    ";": ";"
+    "!": "!"
+    "?": "?"
+  symbols:
+    "/": ["/", "／"]
+    "~": ["~", "～"]
+    "$": ["$", "￥"]
+    "%": ["%", "％"]
+    "@": ["@", "＠"]
+    "&": ["&", "＆"]
+    "*": ["*", "＊"]
+    "#": ["#", "＃"]
+    "(": ["(", "（"]
+    ")": [")", "）"]
+
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Shift_L: commit_code
+    Shift_R: commit_code
+    Control_L: noop
+    Control_R: noop
+
+key_binder:
+  bindings:
+    - { when: composing, accept: "Control+p", send: Up }
+    - { when: composing, accept: "Control+n", send: Down }
+    - { when: composing, accept: "Control+b", send: Left }
+    - { when: composing, accept: "Control+f", send: Right }
+    - { when: composing, accept: "Control+a", send: Home }
+    - { when: composing, accept: "Control+e", send: End }
+    - { when: composing, accept: "Control+d", send: Delete }
+    - { when: composing, accept: "Control+k", send: "Shift+Delete" }
+    - { when: composing, accept: "Control+h", send: BackSpace }
+    - { when: composing, accept: "Control+g", send: Escape }
+    - { when: composing, accept: "Control+bracketleft", send: Escape }
+    - { when: composing, accept: "Control+y", send: Page_Up }
+    - { when: composing, accept: "Alt+v", send: Page_Up }
+    - { when: composing, accept: "Control+v", send: Page_Down }
+    - { when: composing, accept: Shift_L, send: commit_text }
+    - { when: composing, accept: Shift_R, send: commit_text }
